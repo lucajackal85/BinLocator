@@ -24,4 +24,16 @@ class FunctionalTest extends TestCase
         $binLocator = new BinLocator('not-found');
         $binLocator->locate();
     }
+
+    public function testGetProcess(){
+
+        $binLocator = new BinLocator('ls');
+        $process = $binLocator->getProcess(['-lah']);
+
+        $process->run();
+
+        $this->assertTrue($process->isSuccessful());
+        $this->assertEquals('', $process->getErrorOutput());
+        $this->assertNotFalse($process->getOutput());
+    }
 }

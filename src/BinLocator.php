@@ -10,6 +10,7 @@ use Symfony\Component\Process\Process;
 class BinLocator
 {
     protected $binToLocate;
+    protected $whichCommand = 'which';
 
     public function __construct($binToLocate)
     {
@@ -17,11 +18,11 @@ class BinLocator
     }
 
     public function locate(){
-        $process = new Process(['which',$this->binToLocate]);
+        $process = new Process([$this->whichCommand,$this->binToLocate]);
         $process->run();
 
         if($process->getErrorOutput()){
-            throw new \Exception('Something gone wrong!');
+            throw BinLocatorException::processFailed($process);
         }
 
         $path = trim($process->getOutput());
@@ -33,7 +34,7 @@ class BinLocator
         return $path;
     }
 
-    public function getProcess($commandLine){
+    public function getProcess(array $commandLine){
         $bin = $this->locate();
         return new Process(array_merge([$bin],$commandLine));
     }
