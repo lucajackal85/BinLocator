@@ -1,0 +1,26 @@
+{
+    "name": "jackal/bin-locator",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luca",
+            "email": "luca.giacalone@edimotive.com"
+        }
+    ],
+    "config": {
+        "platform": {
+            "php": "7.1"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Jackal\\BinLocator\\": "src/",
+            "Jackal\\BinLocator\\Test\\": "test/"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "symfony/process": "^3.4"
+    }
+}
