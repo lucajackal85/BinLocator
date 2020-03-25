@@ -32,4 +32,9 @@ class BinLocator
 
         return $path;
     }
+
+    public function getProcess($commandLine){
+        $bin = $this->locate();
+        return new Process(array_merge([$bin],$commandLine));
+    }
 }
