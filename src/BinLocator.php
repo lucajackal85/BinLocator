@@ -35,7 +35,7 @@ class BinLocator
     public function getProcess(array $commandLine){
         $bin = $this->locate();
 
-        $commandLine = implode(' ',array_merge([$bin],$commandLine));
+        $commandLine = implode(' ', array_merge([$bin], $commandLine));
 
         //compatibility fix Process >= 5.x
         if(method_exists(Process::class, 'fromShellCommandline')){

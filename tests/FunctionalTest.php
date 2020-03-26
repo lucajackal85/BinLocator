@@ -29,7 +29,7 @@ class FunctionalTest extends TestCase
 
         $ls = trim(exec('which ls'));
 
-        $this->assertEquals($ls.' -lah',$process->getCommandLine());
+        $this->assertEquals($ls . ' -lah', $process->getCommandLine());
     }
 
     public function testExecuteProcess(){
