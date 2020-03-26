@@ -12,8 +12,7 @@ class UnitTest extends TestCase
 
         $wrongCommand = 'which-not-found';
 
-        $this->expectException(BinLocatorException::class);
-        $this->expectExceptionMessage('Something gone wrong executing: \'' .
+        $this->setExpectedException(BinLocatorException::class,'Something gone wrong executing: \'' .
             $wrongCommand . '\' \'bash\', returned: sh: 1: exec: ' .
             $wrongCommand . ': not found'
         );
