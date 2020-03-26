@@ -8,6 +8,11 @@
             "email": "luca.giacalone@edimotive.com"
         }
     ],
+    "config": {
+        "platform": {
+            "php": "7.1"
+        }
+    },
     "autoload": {
         "psr-4": {
             "Jackal\\BinLocator\\": "src/",
@@ -27,11 +32,11 @@
     },
     "require": {
         "php": ">=7.1",
-        "symfony/process": ">=3.4",
-        "brainmaestro/composer-git-hooks": "^2.8"
+        "symfony/process": ">=3.4"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.5",
-        "friendsofphp/php-cs-fixer": "^2.15"
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "brainmaestro/composer-git-hooks": "^2.8"
     }
 }
