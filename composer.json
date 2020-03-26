@@ -16,7 +16,7 @@
     "autoload": {
         "psr-4": {
             "Jackal\\BinLocator\\": "src/",
-            "Jackal\\BinLocator\\Test\\": "test/"
+            "Jackal\\BinLocator\\Test\\": "tests/"
         }
     },
     "extra": {
