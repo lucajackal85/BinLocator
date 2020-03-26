@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Jackal\BinLocator;
-
 
 use Jackal\BinLocator\Exception\BinLocatorException;
 use Symfony\Component\Process\Process;
@@ -36,6 +34,15 @@ class BinLocator
 
     public function getProcess(array $commandLine){
         $bin = $this->locate();
-        return new Process(array_merge([$bin],$commandLine));
+
+        $commandLine = implode(' ',array_merge([$bin],$commandLine));
+
+        //compatibility fix Process >= 5.x
+        if(method_exists(Process::class, 'fromShellCommandline')){
+            return Process::fromShellCommandline($commandLine);
+        }
+
+        //Process < 5.x
+        return new Process($commandLine);
     }
 }

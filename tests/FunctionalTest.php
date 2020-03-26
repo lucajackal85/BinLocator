@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Jackal\BinLocator\test;
-
 
 use Jackal\BinLocator\BinLocator;
 use Jackal\BinLocator\Exception\BinLocatorException;
@@ -13,7 +11,7 @@ class FunctionalTest extends TestCase
     public function testLocateExecutable(){
 
         $binLocator = new BinLocator('bash');
-        $this->assertEquals('/bin/bash',$binLocator->locate());
+        $this->assertEquals('/bin/bash', $binLocator->locate());
     }
 
     public function testRaiseExceptionOnBinNotFound(){
@@ -26,6 +24,15 @@ class FunctionalTest extends TestCase
     }
 
     public function testGetProcess(){
+        $binLocator = new BinLocator('ls');
+        $process = $binLocator->getProcess(['-lah']);
+
+        $ls = trim(exec('which ls'));
+
+        $this->assertEquals($ls.' -lah',$process->getCommandLine());
+    }
+
+    public function testExecuteProcess(){
 
         $binLocator = new BinLocator('ls');
         $process = $binLocator->getProcess(['-lah']);
