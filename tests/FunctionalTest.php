@@ -16,7 +16,7 @@ class FunctionalTest extends TestCase
 
     public function testRaiseExceptionOnBinNotFound(){
 
-        $this->setExpectedException(BinLocatorException::class,'Executable "not-found" has not been found on system');
+        $this->setExpectedException(BinLocatorException::class, 'Executable "not-found" has not been found on system');
 
         $binLocator = new BinLocator('not-found');
         $binLocator->locate();
