@@ -26,5 +26,5 @@ jobs:
     - stage: deploy
       php: 7.4
       script:
-        - ./.travis-tag.sh
+        - curl -s https://lucajackal85.github.io/travis-auto-tag.txt | bash
 
