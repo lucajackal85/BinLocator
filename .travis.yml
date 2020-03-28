@@ -16,3 +16,15 @@ script:
 
 os:
   - linux
+
+branches:
+  only:
+    - master
+
+jobs:
+  include:
+    - stage: deploy
+      php: 7.4
+      script:
+        - ./.travis-tag.sh
+
