@@ -17,6 +17,10 @@ script:
 os:
   - linux
 
+branches:
+  only:
+    - master
+
 jobs:
   include:
     - stage: deploy
