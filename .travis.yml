@@ -24,7 +24,6 @@ branches:
 jobs:
   include:
     - stage: deploy
-      php: 7.4
       script:
         - git config --global user.email "builds@travis-ci.com"
         - git config --global user.name "Travis CI"
